@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+    <groupId>com.evsinev</groupId>
+    <artifactId>mvn-sample-project</artifactId>
+    <version>1.0-1-SNAPSHOT</version>
+
+    <name>mvn sample project ${project.version}</name>
+
+    <description>mvn sample project</description>
+
+    <url>https://github.com/evsinev/mvn-sample-project</url>
+
+    <scm>
+        <connection>scm:git:git@github.com:evsinev/mvn-sample-project.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-cy6ergn0m-maven</id>
+            <name>bintray-plugins</name>
+            <url>http://dl.bintray.com/cy6ergn0m/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>cy.github</groupId>
+                <artifactId>github-release-plugin</artifactId>
+                <version>0.5.2</version>
+
+                <configuration>
+                    <tagName>${project.artifactId}-${project.version}</tagName>
+                    <preRelease>true</preRelease>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>gh-upload</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
