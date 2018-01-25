@@ -4,7 +4,7 @@
 
     <groupId>com.evsinev</groupId>
     <artifactId>mvn-sample-project</artifactId>
-    <version>1.0-5-SNAPSHOT</version>
+    <version>1.0-5</version>
 
     <name>mvn sample project ${project.version}</name>
 
@@ -14,7 +14,7 @@
 
     <scm>
         <connection>scm:git:git@github.com:evsinev/mvn-sample-project.git</connection>
-        <tag>HEAD</tag>
+        <tag>mvn-sample-project-1.0-5</tag>
     </scm>
 
     <dependencies>
